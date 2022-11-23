@@ -1,24 +1,26 @@
 # EXPERIMENT-NO--03-INTERFACING-ANALOG-INPUT-SENSOR-POT-WITH-ARDUINO-
 
+PRASANTH E
 
 
+AIM: 
+To interface a Analog  input (angular displacement sensor POT) and scale the values up on change in the input.
 
-**AIM**:  To interface a Analog  input (angular displacement sensor POT) and scale the values up on change in the input.
 
+COMPONENTS REQUIRED:
 
-**COMPONENTS REQUIRED:**
 1.	10 KΩPOT
 2.	1 KΩ resistor 
 3.	Arduino Uno 
 4.	USB Interfacing cable 
 5.	Connecting wires 
 6.	LED of choice 
-**
 
 
-**THEORY**: 
 
-**Analog signals:**
+THEORY: 
+
+Analog signals:
 
 Analog signals – directly measurable quantities in terms of some other quantity.
 Examples:
@@ -43,16 +45,12 @@ A potentiometer, informally a pot, is a three-terminal resistor with a sliding o
 Potentiometers are commonly used to control electrical devices such as volume controls on audio equipment. Potentiometers operated by a mechanism can be used as position transducers, for example, in a joystick. Potentiometers are rarely used to directly control significant power (more than a watt), since the power dissipated in the potentiometer would be comparable to the power in the controlled load
 CIRCUIT DIAGRAM
 
-
-
-
-
 ![image](https://user-images.githubusercontent.com/36288975/163530788-eec3cdc3-95e8-4d2d-8349-6d0ea4c9439c.png)
 
-**FIGURE -01
-**
+FIGURE -01
 
-**PROCEDURE:**
+
+PROCEDURE:
 
 1.	Connect the circuit as per the circuit diagram 
 2.	Connect the board to your computer via the USB cable.
@@ -66,28 +64,38 @@ CIRCUIT DIAGRAM
 
 
 
-**PROGRAM** 
- 
+PROGRAM
+```
+int sensorvalue = A0;
+int LED=7;
+void setup()
+{
+ sensorvalue=0;
+ Serial.begin(9600);
+ //pinMode(LED_BUILTIN, OUTPUT);
+ pinMode(7,OUTPUT);
+}
+void loop()
+{
+ sensorvalue = analogRead(A0);
+ //Serial.print("POT = ");
+
+ Serial.println(sensorvalue);
+ delay(5);
+ digitalWrite(LED,sensorvalue);
+ delay(5);
+
+}
+```
 
 
 
+Simulation output:
 
 
+![image](https://user-images.githubusercontent.com/114572171/203465542-849991e3-0cf7-46b5-9a77-d669f608c83a.png)
 
 
+RESULT:
 
-
-**
-**Simulation output:** 
-**
-
-
-[My image](username.github.com/repository/img/image.jpg)
-
-
-
-
-
-
-
-**RESULT: ** Arduino uno analog input functioning is learned and interfaced with digital input switch .
+Arduino uno analog input functioning is learned and interfaced with digital input switch .
